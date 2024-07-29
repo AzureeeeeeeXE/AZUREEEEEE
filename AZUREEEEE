@@ -1,0 +1,257 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
+
+library.rank = "premium user"
+local Wm = library:Watermark("Azur X | v" .. library.version ..  " | " .. library:GetUsername() .. " | rank: " .. library.rank)
+local FpsWm = Wm:AddWatermark("fps: " .. library.fps)
+
+coroutine.wrap(function()
+	while wait(.75) do
+		FpsWm:Text("fps: " .. library.fps)
+	end
+end)()
+
+
+local Notif = library:InitNotifications()
+
+local LoadingXSX = Notif:Notify("Loading Azur X, please be patient.", 3, "information") -- notification, alert, error, success, information
+
+library.title = "Azur X v2.0.2"
+
+library:Introduction()
+wait(1)
+local Init = library:Init()
+
+local DupeTab = Init:NewTab("Dupe")
+local AimbotTab = Init:NewTab("Aimbot")
+local VisualsTab = Init:NewTab("Visuals")
+local MiscTab = Init:NewTab("Misc")
+local MiscTab = Init:NewTab("Troll")
+local SettingsTab = Init:NewTab("Settings")
+
+
+--[-- MONEY START --]
+local RecoverySection = DupeTab:NewSection("Dupe")
+
+local Toggle1 = DupeTab:NewToggle("Loop $5k", false, function(value)
+	local vers = value and "on" or "off"
+	print("one " .. vers)
+end)
+
+local FovSlider
+
+local Toggle1 = DupeTab:NewToggle("Bank Dupe", false, function(value)
+	if value then
+		FovSlider:Show()
+	else
+		FovSlider:Show()
+	end
+end)
+
+FovSlider = DupeTab:NewSlider("Bank Delay", "", true, "/", {min = 0, max = 5, default = 0}, function(value)
+	print(value)
+end)
+
+FovSlider:Show()
+
+local RecoverySection = DupeTab:NewSection("Auto Farm")
+
+local FovSlider
+
+local Toggle1 = DupeTab:NewToggle("Legendary Animal Farm", false, function(value)
+	if value then
+		FovSlider:Show()
+	else
+		FovSlider:Show()
+	end
+end)
+
+FovSlider = DupeTab:NewSlider("Max server hop", "", true, "/", {min = 1, max = 30, default = 5}, function(value)
+	print(value)
+end)
+
+FovSlider:Show()
+
+local Toggle1 = DupeTab:NewToggle("Anti Afk Hop", false)
+
+local FovSlider
+
+local Toggle1 = DupeTab:NewToggle("Ore Auto Farm", false, function(value)
+	if value then
+		FovSlider:Show()
+	else
+		FovSlider:Show()
+	end
+end)
+
+FovSlider = DupeTab:NewSlider("Max Ore", "", true, "/", {min = 10, max = 30, default = 15}, function(value)
+	print(value)
+end)
+
+FovSlider:Show()
+
+--[-- MONEY END --]
+
+
+--[-- AIMBOT START --]
+local AimbotSection = AimbotTab:NewSection("Aimbot Options")
+
+local FovSlider
+
+
+
+local AimbotToggle = AimbotTab:NewToggle("Enable Aimbot", false, function(value)
+	if value then
+		FovSlider:Show()
+	else
+		FovSlider:Show()
+	end
+end)
+
+FovSlider = AimbotTab:NewSlider("Aimbot FOV", "", true, "/", {min = 30, max = 180, default = 60}, function(value)
+	print(value)
+end)
+
+FovSlider:Show()
+
+local AimbotToggle = AimbotTab:NewToggle("AirShots", false)
+local AimbotToggle = AimbotTab:NewToggle("Fov Dot", false)
+
+local PredictionFovSlider
+
+local AimbotToggle = AimbotTab:NewToggle("Prediction", false, function(value)
+	if value then
+		PredictionFovSlider:Show()
+	else
+		PredictionFovSlider:Show()
+	end
+end)
+
+PredictionFovSlider = AimbotTab:NewSlider("Prediscion amount", "", true, "/", {min = 0.1, max = 2, default = 1.5}, function(value)
+	print(value)
+end)
+
+PredictionFovSlider:Show()
+
+local SelfDotSection = AimbotTab:NewSection("Self Dot")
+
+local SelfDotToggle = AimbotTab:NewToggle("Enabled", false)
+local SelfDotTracerToggle = AimbotTab:NewToggle("Tracer", false)
+local SelfDotRainbowToggle = AimbotTab:NewToggle("Rainbow", false)
+
+local PredictionXSlider = AimbotTab:NewSlider("Prediction X", "", true, "/", {min = 1, max = 10, default = 1})
+
+local PredictionYSlider = AimbotTab:NewSlider("Prediction Y", "", true, "/", {min = 1, max = 10, default = 1})
+
+local HitPartDropdown = AimbotTab:NewSelector("Hit Part", "Hit Part", {"Torso", "Head", "Leg"})
+
+local FogSection = AimbotTab:NewSection("Fog")
+
+local FogToggle = AimbotTab:NewToggle("Fog", false)
+local FogRainbowToggle = AimbotTab:NewToggle("Fog Rainbow", false)
+local FogStartSlider = AimbotTab:NewSlider("Fog Start", "", true, "/", {min = 0, max = 100, default = 10})
+
+local FogEndSlider = AimbotTab:NewSlider("Fog End", "", true, "/", {min = 0, max = 10, default = 1})
+
+local FovSection = AimbotTab:NewSection("Field Of View")
+
+local FovToggle = AimbotTab:NewToggle("Enabled", false)
+local FovAmountSlider = AimbotTab:NewSlider("Field Of View Amount", "", true, "/", {min = 30, max = 180, default = 120})
+
+
+--[-- AIMBOT END --]
+
+--[-- VISUALS START --]
+local VisualsSection = VisualsTab:NewSection("ESP")
+
+local EspToggle = VisualsTab:NewToggle("Enabled", false)
+local Rainbow = VisualsTab:NewToggle("Rainbow", false)
+local Boxes = VisualsTab:NewToggle("Boxes", false)
+local Names = VisualsTab:NewToggle("Names", false)
+local Distance = VisualsTab:NewToggle("Distance", false)
+local Tracers = VisualsTab:NewToggle("Tracers", false)
+local UnlockTracers = VisualsTab:NewToggle("Unlock Tracers", false)
+
+local SecondVisualsSection = VisualsTab:NewSection("Lighting")
+
+local DisableShadows = VisualsTab:NewToggle("Disable Shadows", false)
+local Rainbow2 = VisualsTab:NewToggle("Rainbow", false)
+local Brightness = VisualsTab:NewSlider("Brightness", "", true, "/", {min = -1, max = 1, default = 0})
+local Saturation = VisualsTab:NewSlider("Saturation", "", true, "/", {min = -1, max = 1, default = 0})
+local Contrast = VisualsTab:NewSlider("Constrast", "", true, "/", {min = -1, max = 1, default = 0})
+
+local CrosshairSection = VisualsTab:NewSection("Crosshair ")
+
+local CrosshairToggle = VisualsTab:NewToggle("Crosshair", false)
+local CrosshairUseText = VisualsTab:NewToggle("Use Text", false)
+local CrosshairRainbow = VisualsTab:NewToggle("Rainbow", false)
+local CrosshairText = VisualsTab:NewTextbox("Crosshair Text", "", "text here", "all", "small", true, false)
+local CrosshairSize = VisualsTab:NewSlider("Size", "", true, "/", {min = 10, max = 100, default = 10})
+local CrosshairThickness = VisualsTab:NewSlider("Thickness", "", true, "/", {min = 1, max = 5, default = 1})
+
+local SelfDotSection = VisualsTab:NewSection("Self Dot")
+
+local SelfDotToggle = VisualsTab:NewToggle("Enabled", false)
+local SelfDotTracerToggle = VisualsTab:NewToggle("Tracer", false)
+local SelfDotRainbowToggle = VisualsTab:NewToggle("Rainbow", false)
+
+local PredictionXSlider = VisualsTab:NewSlider("Prediction X", "", true, "/", {min = 1, max = 10, default = 1})
+
+local PredictionYSlider = VisualsTab:NewSlider("Prediction Y", "", true, "/", {min = 1, max = 10, default = 1})
+
+local HitPartDropdown = VisualsTab:NewSelector("Hit Part", "Hit Part", {"Torso", "Head", "Leg"})
+
+local FogSection = VisualsTab:NewSection("Fog")
+
+local FogToggle = VisualsTab:NewToggle("Fog", false)
+local FogRainbowToggle = VisualsTab:NewToggle("Fog Rainbow", false)
+local FogStartSlider = VisualsTab:NewSlider("Fog Start", "", true, "/", {min = 0, max = 100, default = 10})
+
+local FogEndSlider = VisualsTab:NewSlider("Fog End", "", true, "/", {min = 0, max = 10, default = 1})
+
+local FovSection = VisualsTab:NewSection("Field Of View")
+
+local FovToggle = VisualsTab:NewToggle("Enabled", false)
+local FovAmountSlider = VisualsTab:NewSlider("Field Of View Amount", "", true, "/", {min = 30, max = 180, default = 120})
+
+local StretchResSection = VisualsTab:NewSection("Stretch Res")
+
+local StretchResToggle = VisualsTab:NewToggle("Enabled", false)
+local StretchResAmountSlider = VisualsTab:NewSlider("Stretch Res Amount", "", true, "/", {min = 0.5, max = 2, default = 0.9})
+
+--[-- VISUALS END --]
+
+--[-- MISC START--]
+local MiscSection = MiscTab:NewSection("Movement Settings")
+
+local FlyToggle = MiscTab:NewToggle("Fly", false)
+local ClickTeleportToggle = MiscTab:NewToggle("Ctrl Click Teleport", false)
+local AutoJump = MiscTab:NewToggle("Auto Jump")
+local BunnyHop = MiscTab:NewToggle("Bunny Hop")
+
+local UtilitiesSection = MiscTab:NewSection("Utilities")
+
+local AntiStomp = MiscTab:NewToggle("Anti Stomp", false)
+local AntiStompMethod = MiscTab:NewSelector("Anti Stomp Method", "Anti Stomp Method", {"Delete", "Headless", "Force Dead"})
+local AutoStomp = MiscTab:NewToggle("Auto Stomp", false)
+local AutoReload = MiscTab:NewToggle("Auto Reload", false)
+local AntiVoid = MiscTab:NewToggle("Anti Void", false)
+local DisableSeats = MiscTab:NewToggle("Disable Seats", false)
+local TrashTalk = MiscTab:NewToggle("Auto Trash Talk", false)
+local RizzTalk = MiscTab:NewToggle("Auto Rizz Talk", false)
+
+local AntiLockSection = MiscTab:NewSection("Anti Lock")
+
+local AntiLockEnabled = MiscTab:NewToggle("Enabled", false)
+local AntiLockMethod = MiscTab:NewSelector("Anti Lock Method", "Anti Lock Method", {"Custom", "Prediction Changer", "Prediction Disabler", "Random", "Up", "Down", "Prediction Reverser", "Look Vector", "Air Orthodox", "Mouse Position", "Spinbot Desync"})
+local PredictionAmount = MiscTab:NewSlider("Prediction Amount", "", true, "/", {min = -20, max = 20, default = 0})
+local RandomAmount = MiscTab:NewSlider("Random Amount", "", true, "/", {min = 10, max = 10000, default = 10000})
+local LookVector = MiscTab:NewSlider("Look Vector Amount", "", true, "/", {min = -10000, max = 10000, default = 10000})
+local DesyncVelocity = MiscTab:NewSelector("Desync Velocity", "Desync Velocity", {"Down", "Up"})
+--[-- MISC END--]
+
+--[--TROLL START--]
+
+
+--[--TROLL END--]
+
+local FinishedLoading = Notif:Notify("Successfully loaded!", 4, "success")
