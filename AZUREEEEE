@@ -37,9 +37,12 @@ local Toggle1 = DupeTab:NewToggle("Loop $5k", false, function(value)
 	print("one " .. vers)
 end)
 
+local RecoverySection = DupeTab:NewSection("Trade Scam")
+
+
 local FovSlider
 
-local Toggle1 = DupeTab:NewToggle("Bank Dupe", false, function(value)
+local Toggle1 = DupeTab:NewToggle("Freeze Trade Packet", false, function(value)
 	if value then
 		FovSlider:Show()
 	else
@@ -47,43 +50,7 @@ local Toggle1 = DupeTab:NewToggle("Bank Dupe", false, function(value)
 	end
 end)
 
-FovSlider = DupeTab:NewSlider("Bank Delay", "", true, "/", {min = 0, max = 5, default = 0}, function(value)
-	print(value)
-end)
-
-FovSlider:Show()
-
-local RecoverySection = DupeTab:NewSection("Auto Farm")
-
-local FovSlider
-
-local Toggle1 = DupeTab:NewToggle("Legendary Animal Farm", false, function(value)
-	if value then
-		FovSlider:Show()
-	else
-		FovSlider:Show()
-	end
-end)
-
-FovSlider = DupeTab:NewSlider("Max server hop", "", true, "/", {min = 1, max = 30, default = 5}, function(value)
-	print(value)
-end)
-
-FovSlider:Show()
-
-local Toggle1 = DupeTab:NewToggle("Anti Afk Hop", false)
-
-local FovSlider
-
-local Toggle1 = DupeTab:NewToggle("Ore Auto Farm", false, function(value)
-	if value then
-		FovSlider:Show()
-	else
-		FovSlider:Show()
-	end
-end)
-
-FovSlider = DupeTab:NewSlider("Max Ore", "", true, "/", {min = 10, max = 30, default = 15}, function(value)
+FovSlider = DupeTab:NewSlider("Freeze Packet Rate", "", true, "/", {min = 30, max = 180, default = 60}, function(value)
 	print(value)
 end)
 
@@ -230,10 +197,10 @@ local BunnyHop = MiscTab:NewToggle("Bunny Hop")
 
 local UtilitiesSection = MiscTab:NewSection("Utilities")
 
-local AntiStomp = MiscTab:NewToggle("Anti Stomp", false)
-local AntiStompMethod = MiscTab:NewSelector("Anti Stomp Method", "Anti Stomp Method", {"Delete", "Headless", "Force Dead"})
-local AutoStomp = MiscTab:NewToggle("Auto Stomp", false)
-local AutoReload = MiscTab:NewToggle("Auto Reload", false)
+local AntiStomp = MiscTab:NewToggle("Anti Kill", false)
+local AntiStompMethod = MiscTab:NewSelector("Anti Kill Method", "Anti Stomp Method", {"Delete", "Headless", "Force Dead"})
+local AutoStomp = MiscTab:NewToggle("Auto Shoot Murd", false)
+local AutoReload = MiscTab:NewToggle("Auto Grab Gun", false)
 local AntiVoid = MiscTab:NewToggle("Anti Void", false)
 local DisableSeats = MiscTab:NewToggle("Disable Seats", false)
 local TrashTalk = MiscTab:NewToggle("Auto Trash Talk", false)
